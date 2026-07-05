@@ -5,6 +5,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-05',
   devtools: { enabled: false },
 
+  nitro: {
+    preset: 'cloudflare-pages'
+  },
+
   components: [
     { path: '~/components', pathPrefix: false },
   ],
