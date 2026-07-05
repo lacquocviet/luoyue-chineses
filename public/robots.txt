@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luoyuechinese.vn/sitemap.xml
