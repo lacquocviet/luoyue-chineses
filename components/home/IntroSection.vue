@@ -29,7 +29,7 @@
       <!-- Right: Class Image -->
       <div class="intro-image-wrap reveal" style="transition-delay: 150ms;">
         <div class="image-border-decoration">
-          <img src="/sources/classroom.png" alt="Lớp học tại Luoyue Chinese" class="intro-img" onerror="this.src='/logo.png'; this.style.objectFit='contain'; this.style.padding='40px'" />
+          <img src="/sources/class.png" alt="Lớp học tại Luoyue Chinese" class="intro-img" onerror="this.src='/logo.png'; this.style.objectFit='contain'; this.style.padding='40px'" />
         </div>
       </div>
     </div>
