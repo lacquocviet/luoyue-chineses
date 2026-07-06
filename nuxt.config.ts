@@ -6,7 +6,11 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
 
   nitro: {
-    preset: 'cloudflare-pages'
+    preset: 'cloudflare-pages',
+    compatibilityDate: '2025-07-05',
+    cloudflare: {
+      compatibilityFlags: ['nodejs_compat'],
+    },
   },
 
   components: [
