@@ -39,7 +39,7 @@
           </div>
           <div class="about-story-img">
             <div class="about-img-wrap">
-              <img src="/sources/classroom.png" alt="Lớp học tại Luoyue Chinese" class="about-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <img src="/sources/class.png" alt="Lớp học tại Luoyue Chinese" class="about-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
               <div class="about-img-fallback" style="display:none">
                 <span class="about-img-emoji">🏫</span>
                 <span class="about-img-chinese chinese">雒越中文</span>
