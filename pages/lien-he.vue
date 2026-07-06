@@ -41,7 +41,7 @@
           </div>
 
           <div class="social-quick">
-            <a href="https://facebook.com/luoyuechinese" target="_blank" class="quick-btn fb">
+            <a href="https://www.facebook.com/lacquocviet?locale=vi_VN" target="_blank" class="quick-btn fb">
               📘 Nhắn Facebook
             </a>
             <a href="https://zalo.me/0989664362" target="_blank" class="quick-btn zalo">
