@@ -38,10 +38,13 @@
             </p>
           </div>
           <div class="about-story-img">
-            <div class="about-img-placeholder">
-              <span class="about-img-emoji">🏫</span>
-              <span class="about-img-chinese chinese">雒越中文</span>
-              <span class="about-img-label">Trung tâm Luoyue Chinese</span>
+            <div class="about-img-wrap">
+              <img src="/sources/classroom.png" alt="Lớp học tại Luoyue Chinese" class="about-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="about-img-fallback" style="display:none">
+                <span class="about-img-emoji">🏫</span>
+                <span class="about-img-chinese chinese">雒越中文</span>
+                <span class="about-img-label">Trung tâm Luoyue Chinese</span>
+              </div>
             </div>
           </div>
         </div>
@@ -155,16 +158,34 @@ onMounted(() => {
   line-height: 1.75;
 }
 .about-story-img {}
-.about-img-placeholder {
+.about-img-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  aspect-ratio: 4/3;
+  width: 100%;
+}
+.about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+.about-img:hover {
+  transform: scale(1.05);
+}
+.about-img-fallback {
   background: var(--color-primary-light);
   border-radius: var(--radius-lg);
-  height: 360px;
-  display: flex;
+  height: 100%;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 12px;
   border: 2px solid var(--color-border);
+  aspect-ratio: 4/3;
 }
 .about-img-emoji { font-size: 5rem; }
 .about-img-chinese { font-size: 2rem; font-weight: 700; color: var(--color-primary); }
