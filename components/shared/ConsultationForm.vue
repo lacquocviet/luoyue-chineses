@@ -66,15 +66,25 @@
         <span v-if="submitting">Đang gửi...</span>
         <span v-else>Gửi đăng ký tư vấn</span>
       </button>
-
-      <p v-if="submitted" class="success-msg">
-        ✅ Đăng ký thành công! Chúng tôi sẽ liên hệ trong 24h.
-      </p>
     </form>
+
+    <!-- Success modal -->
+    <Teleport to="body">
+      <div v-if="showSuccessModal" class="success-overlay" @click.self="closeSuccessModal">
+        <div class="success-modal">
+          <div class="success-icon">✅</div>
+          <h3 class="success-title">Đăng ký thành công!</h3>
+          <p class="success-desc">Cảm ơn <strong>{{ form.name }}</strong> đã đăng ký. Chúng tôi sẽ liên hệ qua số <strong>{{ form.phone }}</strong> trong vòng 24h để tư vấn chi tiết.</p>
+          <button class="btn btn-primary" @click="closeSuccessModal">Đã hiểu</button>
+        </div>
+      </div>
+    </Teleport>
   </div>
 </template>
 
 <script setup lang="ts">
+import { reactive, ref } from 'vue'
+
 defineProps({
   title: { type: String, default: 'Đăng ký tư vấn miễn phí' },
   subtitle: { type: String, default: 'Điền thông tin bên dưới — chúng tôi sẽ liên hệ hỗ trợ bạn trong 24h.' },
@@ -82,17 +92,24 @@ defineProps({
 
 const form = reactive({ name: '', phone: '', email: '', course: '', note: '' })
 const submitting = ref(false)
-const submitted = ref(false)
+const showSuccessModal = ref(false)
+
+function closeSuccessModal() {
+  showSuccessModal.value = false
+}
 
 async function handleSubmit() {
   submitting.value = true
   // Simulate API call
   await new Promise((r) => setTimeout(r, 1000))
   submitting.value = false
-  submitted.value = true
-  // Reset after 5 seconds
-  setTimeout(() => (submitted.value = false), 5000)
-  // TODO: send to Lark Suite / Google Sheets via /api/leads
+  showSuccessModal.value = true
+  // Reset form
+  form.name = ''
+  form.phone = ''
+  form.email = ''
+  form.course = ''
+  form.note = ''
 }
 </script>
 
@@ -176,5 +193,52 @@ async function handleSubmit() {
   padding: 12px;
   background: #f0fdf4;
   border-radius: var(--radius-sm);
+}
+
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.success-modal {
+  background: white;
+  border-radius: 24px;
+  padding: 48px 40px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2);
+  animation: modal-in 0.3s ease;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.success-icon {
+  font-size: 3.5rem;
+  margin-bottom: 16px;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 12px;
+}
+
+.success-desc {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
 }
 </style>

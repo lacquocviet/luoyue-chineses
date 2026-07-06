@@ -6,7 +6,7 @@
         <!-- Brand col -->
         <div class="footer-brand">
           <NuxtLink to="/" class="footer-logo">
-            <img src="/logo.png" alt="Luoyue Chinese" />
+            <img src="/logo.png" alt="Luoyue Chinese" class="footer-logo-img" />
             <div>
               <div class="footer-logo-name">Luoyue Chinese</div>
               <div class="footer-logo-chinese chinese">雒越中文</div>
@@ -136,11 +136,12 @@ import { MapPin, Phone, Mail, Clock } from '@lucide/vue'
   gap: 10px;
 }
 
-.footer-logo img {
+.footer-logo-img {
   width: 48px;
   height: 48px;
+  flex-shrink: 0;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  border-radius: 8px;
 }
 
 .footer-logo-name {

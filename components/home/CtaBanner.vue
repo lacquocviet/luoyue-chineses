@@ -1,4 +1,16 @@
 <template>
+  <!-- Success overlay -->
+  <Teleport to="body">
+    <div v-if="showSuccessModal" class="success-overlay" @click.self="closeSuccessModal">
+      <div class="success-modal">
+        <div class="success-icon">✅</div>
+        <h3 class="success-title">Đăng ký thành công!</h3>
+        <p class="success-desc">Cảm ơn <strong>{{ form.name }}</strong> đã đăng ký. Chúng tôi sẽ liên hệ qua số <strong>{{ form.phone }}</strong> trong vòng 24h để tư vấn chi tiết.</p>
+        <button class="btn btn-accent" @click="closeSuccessModal">Đã hiểu</button>
+      </div>
+    </div>
+  </Teleport>
+
   <section class="cta-banner">
     <div class="container cta-inner">
       <div class="cta-text reveal">
@@ -49,12 +61,17 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 const form = reactive({ name: '', phone: '', course: '' })
+const showSuccessModal = ref(false)
+
+function closeSuccessModal() {
+  showSuccessModal.value = false
+}
 
 function handleSubmit() {
   // TODO: integrate with CRM (Lark Suite / Google Sheets)
-  alert(`Cảm ơn ${form.name}! Chúng tôi sẽ liên hệ ${form.phone} sớm nhất có thể.`)
+  showSuccessModal.value = true
   form.name = ''
   form.phone = ''
   form.course = ''
@@ -168,5 +185,64 @@ function handleSubmit() {
     gap: 40px;
   }
   .cta-text { text-align: center; }
+}
+
+/* ============================================================
+   SUCCESS MODAL
+   ============================================================ */
+.success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;
+}
+
+.success-modal {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  max-width: 460px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.3s ease;
+}
+
+.success-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 12px;
+}
+
+.success-desc {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 </style>
