@@ -50,7 +50,9 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', href: '/logo.png' },
       ],
     },
-    pageTransition: { name: 'page', mode: 'out-in' },
+    // Disable page transitions to avoid route-change timing races that can
+    // leave page content hidden until a full reload.
+    pageTransition: false,
   },
 
   css: ['~/assets/css/main.css'],

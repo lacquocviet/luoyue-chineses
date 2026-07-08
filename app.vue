@@ -7,21 +7,8 @@
   </div>
 </template>
 
-<script setup lang="ts">
-// Scroll reveal effect - observe elements with .reveal class
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible')
-        }
-      })
-    },
-    { threshold: 0.1 }
-  )
-
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
-  revealEls.forEach((el) => observer.observe(el))
-})
-</script>
+<!-- No global reveal JavaScript.
+  Content must be visible by default on every client-side navigation.
+  The old IntersectionObserver flow could leave .reveal blocks at opacity: 0
+  when Nuxt reused/transitioned pages, which caused blank content until reload.
+-->
