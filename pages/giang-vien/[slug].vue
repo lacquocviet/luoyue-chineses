@@ -102,10 +102,6 @@ useHead({
   title: computed(() => teacher.value ? `${teacher.value.name} | Giảng viên Luoyue Chinese` : 'Giảng viên | Luoyue Chinese'),
 })
 
-onMounted(() => {
-  const obs = new IntersectionObserver((e) => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible') }), { threshold: 0.1 })
-  document.querySelectorAll('.reveal').forEach((el) => obs.observe(el))
-})
 </script>
 
 <style scoped>

@@ -82,10 +82,6 @@ useHead({
   meta: [{ name: 'description', content: 'Liên hệ Luoyue Chinese: hotline 0989664362, email lacquocviet.editor@gmail.com, địa chỉ 169 Hoàng Mai, Tương Mai, Hà Nội.' }],
 })
 
-onMounted(() => {
-  const obs = new IntersectionObserver((e) => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible') }), { threshold: 0.1 })
-  document.querySelectorAll('.reveal').forEach((el) => obs.observe(el))
-})
 </script>
 
 <style scoped>

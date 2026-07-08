@@ -91,10 +91,6 @@ const hskResults = [
   { level: 'HSK 4', name: 'Đặng Văn Tú', score: 255, total: 300, date: '06/2025', color: '#1B4F91' },
 ]
 
-onMounted(() => {
-  const obs = new IntersectionObserver((e) => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible') }), { threshold: 0.1 })
-  document.querySelectorAll('.reveal').forEach((el) => obs.observe(el))
-})
 </script>
 
 <style scoped>

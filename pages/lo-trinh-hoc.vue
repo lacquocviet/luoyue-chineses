@@ -18,10 +18,6 @@
 </template>
 <script setup lang="ts">
 useHead({ title: 'Lộ trình học tiếng Trung | Luoyue Chinese', meta: [{ name: 'description', content: 'Lộ trình học tiếng Trung từ sơ cấp đến cao cấp: HSK 1, 2, 3, 4, 5, 6. Thời gian học tập cụ thể, rõ ràng.' }] })
-onMounted(() => {
-  const obs = new IntersectionObserver((e) => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible') }), { threshold: 0.1 })
-  document.querySelectorAll('.reveal').forEach((el) => obs.observe(el))
-})
 </script>
 <style scoped>
 .page-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); padding: 120px 0 64px; color: white; }

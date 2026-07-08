@@ -37,11 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-onMounted(() => {
-  const obs = new IntersectionObserver((e) => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible') }), { threshold: 0.15 })
-  document.querySelectorAll('.intro-section .reveal').forEach((el) => obs.observe(el))
-})
+// Scroll reveal is handled globally in app.vue — no local observer needed.
 </script>
 
 <style scoped>

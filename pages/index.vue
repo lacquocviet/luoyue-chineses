@@ -33,29 +33,7 @@ useHead({
   ],
 })
 
-// Re-trigger scroll reveal on page load
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible')
-        }
-      })
-    },
-    { threshold: 0.05, rootMargin: '0px 0px 50px 0px' }
-  )
-  
-  // Trì hoãn một chút để đảm bảo DOM của Nuxt đã render đầy đủ
-  setTimeout(() => {
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
-      observer.observe(el)
-      // Nếu phần tử đã nằm trong viewport ngay khi load, kích hoạt luôn
-      const rect = el.getBoundingClientRect()
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        el.classList.add('visible')
-      }
-    })
-  }, 100)
-})
+// Scroll reveal is handled globally in app.vue via IntersectionObserver.
+// No local observer needed — it would conflict with the global one and
+// cause the menu navigation bug (content not displaying after click).
 </script>

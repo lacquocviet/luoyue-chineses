@@ -30,8 +30,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-
 const featuredCourses = [
   {
     slug: 'hsk-1',
@@ -101,16 +99,13 @@ const featuredCourses = [
   },
 ]
 
-onMounted(() => {
-  const obs = new IntersectionObserver((e) => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible') }), { threshold: 0.1 })
-  document.querySelectorAll('.courses-section-glass .reveal').forEach((el) => obs.observe(el))
-})
+// Scroll reveal is handled globally in app.vue
 </script>
 
 <style scoped>
 .courses-section-glass {
   position: relative;
-  background: linear-gradient(180deg, #edf2fc 0%, #f8faff 100%);
+  background: linear-gradient(180deg, #dce6f5 0%, #e8f0fe 100%);
   overflow: hidden;
 }
 

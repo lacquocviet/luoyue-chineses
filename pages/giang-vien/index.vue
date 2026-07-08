@@ -76,10 +76,6 @@ const teachers = [
   { slug: 'nguyen-phuong-linh', name: 'Cô Nguyễn Phương Linh', initials: 'PL', title: 'Giảng viên Business Chinese', flag: '🇨🇳', bgColor: 'linear-gradient(135deg, #45B7D1, #2980b9)', badges: ['HSK 5', 'MBA Thượng Hải', '5 năm KN'], students: '150+', years: '5', rating: '4.9' },
 ]
 
-onMounted(() => {
-  const obs = new IntersectionObserver((e) => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible') }), { threshold: 0.1 })
-  document.querySelectorAll('.reveal').forEach((el) => obs.observe(el))
-})
 </script>
 
 <style scoped>

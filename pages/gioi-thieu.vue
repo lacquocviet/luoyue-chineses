@@ -106,12 +106,9 @@ useHead({
   ],
 })
 
-onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible') })
-  }, { threshold: 0.1 })
-  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
-})
+// Scroll reveal is handled globally in app.vue — no local observer needed.
+// A duplicate observer here would conflict with the global one and cause
+// memory leaks (no onBeforeUnmount cleanup).
 </script>
 
 <style scoped>
