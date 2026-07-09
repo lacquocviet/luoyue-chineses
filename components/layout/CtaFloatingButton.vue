@@ -9,10 +9,7 @@
       class="float-btn zalo-btn"
       aria-label="Chat Zalo"
     >
-      <svg class="float-logo-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="52" height="52" rx="10" fill="#0068FF"/>
-        <text x="26" y="34" text-anchor="middle" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="bold">ZALO</text>
-      </svg>
+      <img src="/sources/logozalo.png" alt="Zalo" class="float-logo" />
       <span class="float-tooltip">Chat Zalo</span>
     </a>
     <!-- Messenger -->
@@ -23,11 +20,7 @@
       class="float-btn messenger-btn"
       aria-label="Chat Messenger"
     >
-      <svg class="float-logo-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="52" height="52" rx="12" fill="#006AFF"/>
-        <path d="M26 11C17.72 11 11 17.17 11 24.83c0 4.43 2.01 8.4 5.21 11.05V42l6.46-3.56c1.06.25 2.17.39 3.33.39 8.28 0 15-6.17 15-13.83S34.28 11 26 11z" fill="white"/>
-        <path d="M31.5 22l-6 6.5-3.5-3.8L16 28.5l6-6.5 3.48 3.8L31.5 22z" fill="#006AFF"/>
-      </svg>
+      <img src="/sources/logomessenger.png" alt="Messenger" class="float-logo" />
       <span class="float-tooltip">Chat Messenger</span>
     </a>
     <!-- Register -->
@@ -120,15 +113,17 @@ function handlePopupSubmit() {
 
 .zalo-btn,
 .messenger-btn {
-  background: transparent;
+  background: white;
   padding: 0;
+  overflow: hidden;
 }
 
-.float-logo-svg {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+.float-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
+  border-radius: 50%;
 }
 
 .register-btn { background: var(--color-primary); }

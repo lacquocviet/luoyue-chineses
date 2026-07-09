@@ -1,0 +1,5 @@
+const StatsCounter_vue_vue_type_style_index_0_scoped_8b9e83c7_lang = ".stats-section[data-v-8b9e83c7]{background:var(--color-accent);padding:56px 0}.stats-grid[data-v-8b9e83c7]{display:grid;gap:20px;grid-template-columns:repeat(5,1fr)}.stat-item[data-v-8b9e83c7]{align-items:center;display:flex;flex-direction:column;gap:8px;text-align:center}.stat-icon[data-v-8b9e83c7]{font-size:2.5rem;line-height:1}.stat-number[data-v-8b9e83c7]{align-items:baseline;display:flex;font-family:var(--font-sans);font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:900;gap:2px;line-height:1}.counter[data-v-8b9e83c7],.stat-number[data-v-8b9e83c7]{color:var(--color-primary-dark)}.stat-label[data-v-8b9e83c7]{color:var(--color-ink);font-size:.9rem;font-weight:600;opacity:.9}@media(max-width:900px){.stats-grid[data-v-8b9e83c7]{gap:24px;grid-template-columns:repeat(3,1fr)}}@media(max-width:600px){.stats-grid[data-v-8b9e83c7]{grid-template-columns:repeat(2,1fr)}}@media(max-width:400px){.stats-grid[data-v-8b9e83c7]{grid-template-columns:1fr}}";
+export {
+  StatsCounter_vue_vue_type_style_index_0_scoped_8b9e83c7_lang as default
+};
+//# sourceMappingURL=StatsCounter-styles-1.mjs-Bxs4V8BT.js.map
